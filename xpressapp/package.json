@@ -1,0 +1,20 @@
+{
+  "name": "xpressapp",
+  "version": "1.0.0",
+  "description": "Express App",
+  "main": "app.js",
+  "scripts": {
+    "test": "test app.js",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "Karthikeyan R",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  }
+}
