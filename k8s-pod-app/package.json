@@ -1,0 +1,14 @@
+{
+  "name": "k8s-pod-app",
+  "version": "1.0.0",
+  "description": "App to be deployed on K8S cluster. Just fun",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Karthikeyan R",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
