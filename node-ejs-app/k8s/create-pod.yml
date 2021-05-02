@@ -1,0 +1,13 @@
+# Kubernetes Pod to deploy the app contained in gcr.io/kr-networking-project/node-ejs-app
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-ejs-pod
+  labels:
+    app: web
+spec:
+  containers:
+    - name: web-container
+      image: gcr.io/kr-networking-project/node-ejs-app:1
+      ports:
+        - containerPort: 3000
