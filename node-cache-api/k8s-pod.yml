@@ -1,0 +1,17 @@
+# Kubernetes Pod to deploy the app contained in gcr.io/kr-networking-project/node-ejs-app
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-cache-pod
+  labels:
+    app: web
+spec:
+  containers:
+    - name: api-container
+      image: gcr.io/kr-practice-e2e/node-cache-api:latest
+      ports:
+        - containerPort: 3000
+    - name: cache-with-redis
+      image: redis:latest
+      ports:
+        - containerPort: 6379

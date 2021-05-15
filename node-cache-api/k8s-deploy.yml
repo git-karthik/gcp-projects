@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: Node Cache Deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        editor: vscode
+        app: web
+    spec:
+      containers:
+      - name: node-cache
+        image: gcr.io/kr-practice-e2e/node-cache-api:latest
+        ports:
+        - containerPort: 3000
+      - name: cache-with-redis
+        image:  redis:latest
+        ports:
+        - containerPort: 6379
