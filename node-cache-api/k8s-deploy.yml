@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nodecache-web-deploy
 spec:
-  replicas: 10
+  replicas: 3
   selector:
     matchLabels:
       app: web
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: node-cache
-        image: gcr.io/kr-practice-e2e/node-cache-api:latest
+        image: gcr.io/kr-practice-e2e/node-cache-api:2.0
         ports:
         - containerPort: 3000
       - name: cache-with-redis
