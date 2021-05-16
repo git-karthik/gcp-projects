@@ -1,13 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodecache-web-deploy
+  name:  node-cache-deployment
+  labels:
+    name:  node-cache-app
 spec:
-  replicas: 3
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
   template:
     metadata:
       labels:
-        app: web
+        name:  web
     spec:
       containers:
       - name: node-cache
@@ -16,5 +22,5 @@ spec:
         - containerPort: 3000
       - name: cache-with-redis
         image:  redis:latest
-        ports:
-        - containerPort: 6379
+      restartPolicy: Always
+      imagePullPolicy: Always
