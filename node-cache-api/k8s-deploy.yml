@@ -4,6 +4,9 @@ metadata:
   name: nodecache-web-deploy
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: web
   template:
     metadata:
       labels:
