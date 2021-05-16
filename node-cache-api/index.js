@@ -11,6 +11,18 @@ app.get("/users", (req, res) => {
     const email = req.query.email;
   
     try {
+      if(!email){
+        axios.get(`${USER_API}`).then(function (response) {
+          const users = response.data;
+          if(users){
+            users.forEach(user => {
+              redisClient.setex(user.email,600,JSON.stringify(user));
+              console.log("User successfully retrieved from the API");
+            });
+          }        
+          res.status(200).json(users);
+        });
+      } else{
       axios.get(`${USER_API}?email=${email}`).then(function (response) {
         const users = response.data;
   
@@ -18,6 +30,7 @@ app.get("/users", (req, res) => {
   
         res.status(200).json(users);
       });
+    }
     } catch (err) {
       res.status(500).send({ error: err.message });
     }
