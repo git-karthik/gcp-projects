@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  ps-loadbalancer
+spec:
+  selector:
+    app:  web
+  type:  LoadBalancer
+  ports:
+  - name:  ps-lb
+    port:  80
+    targetPort:  3000
