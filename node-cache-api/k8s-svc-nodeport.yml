@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  ps-nodeport
+spec:
+  selector:
+    app:  web
+  type:  NodePort
+  ports:
+  - name:  ps-nodeport-nm
+    port:  80
+    targetPort:  3000
+    protocol: TCP
