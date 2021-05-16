@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nodecache-web-deploy
 spec:
-  replicas: 3
+  replicas: 10
   selector:
     matchLabels:
       app: web
